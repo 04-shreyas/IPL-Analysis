@@ -4,6 +4,36 @@ Full-Stack MERN + FastAPI ML + Advanced Cricket Analytics (2008–2019)
 A complete IPL analytics platform combining React, Express, MongoDB, and FastAPI Machine Learning.  
 It provides deep statistical insights, match breakdowns, ball-by-ball exploration, and ML-powered predictions for all IPL seasons from 2008–2019.
 
+## 📸 Screenshots
+
+### 🏠 Home Dashboard
+![Home](docs/home.png)
+
+### 🧩 Teams Overview
+![Teams](docs/team.png)
+
+### 📅 Season-wise Performance
+![Season](docs/season.png)
+
+### 🔍 Match List (Season View)
+![Matches](docs/matches.png)
+
+### 📝 Match Summary
+![Match Summary](docs/matchsummary.png)
+
+### 📊 Player Analytics
+![Player Analytics](docs/playeranalytics.png)
+
+### 🎯 Bowler Analytics
+![Bowler Analytics](docs/bowleranalytics.png)
+
+### ⚔️ Head-to-Head Comparison
+![Head to Head](docs/head2head.png)
+
+### 🏟️ Venue Analytics
+![Venue Stats](docs/venuestats.png)
+
+
 --------------------------------------------------------------------------------
 EXTENSIBLE MODULAR STRUCTURE FOR NEW ANALYTICS MODULES
 --------------------------------------------------------------------------------
@@ -265,32 +295,4 @@ This system demonstrates:
   - Highly modular architecture suitable for extension
 
 
-## 📸 Screenshots
-
-### 🏠 Home Dashboard
-![Home](docs/home.png)
-
-### 🧩 Teams Overview
-![Teams](docs/team.png)
-
-### 📅 Season-wise Performance
-![Season](docs/season.png)
-
-### 🔍 Match List (Season View)
-![Matches](docs/matches.png)
-
-### 📝 Match Summary
-![Match Summary](docs/matchsummary.png)
-
-### 📊 Player Analytics
-![Player Analytics](docs/playeranalytics.png)
-
-### 🎯 Bowler Analytics
-![Bowler Analytics](docs/bowleranalytics.png)
-
-### ⚔️ Head-to-Head Comparison
-![Head to Head](docs/head2head.png)
-
-### 🏟️ Venue Analytics
-![Venue Stats](docs/venuestats.png)
 
