@@ -264,3 +264,33 @@ This system demonstrates:
   - Advanced sports analytics and visualization
   - Highly modular architecture suitable for extension
 
+
+## 📸 Screenshots
+
+### 🏠 Home Dashboard
+![Home](docs/home.png)
+
+### 🧩 Teams Overview
+![Teams](docs/team.png)
+
+### 📅 Season-wise Performance
+![Season](docs/season.png)
+
+### 🔍 Match List (Season View)
+![Matches](docs/matches.png)
+
+### 📝 Match Summary
+![Match Summary](docs/matchsummary.png)
+
+### 📊 Player Analytics
+![Player Analytics](docs/playeranalytics.png)
+
+### 🎯 Bowler Analytics
+![Bowler Analytics](docs/bowleranalytics.png)
+
+### ⚔️ Head-to-Head Comparison
+![Head to Head](docs/head2head.png)
+
+### 🏟️ Venue Analytics
+![Venue Stats](docs/venuestats.png)
+
