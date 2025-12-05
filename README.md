@@ -25,7 +25,7 @@ Make sure MongoDB is running before you start the backend or import data.
 ## 2. Project Structure
 
 ```text
-IPL - Copy/
+IPL/
   backend/        # Node/Express API + MongoDB models and controllers
   client/         # React frontend
   ml-service/     # FastAPI ML service for predictions
@@ -44,7 +44,7 @@ Key docs:
 1. Open a terminal in the `backend` folder:
 
    ```bash
-   cd "S:/IPL - Copy/backend"
+   cd "S:/IPL/backend"
    ```
 
 2. Install dependencies:
@@ -87,7 +87,7 @@ Key docs:
 1. Open a terminal in the `ml-service` folder:
 
    ```bash
-   cd "S:/IPL - Copy/ml-service"
+   cd "S:/IPL/ml-service"
    ```
 
 2. Create and activate a virtual environment (recommended):
@@ -122,7 +122,7 @@ Key docs:
 1. Open a terminal in the `client` folder:
 
    ```bash
-   cd "S:/IPL - Copy/client"
+   cd "S:/IPL/client"
    ```
 
 2. Install dependencies:
@@ -174,7 +174,7 @@ Typical workflow:
 2. **Import data** (only needed once or when refreshing data):
 
    ```bash
-   cd "S:/IPL - Copy/backend"
+   cd "S:/IPL/backend"
    $env:IMPORT_CLEAR="true"  # PowerShell
    npm run import:data
    ```
@@ -182,14 +182,14 @@ Typical workflow:
 3. **Run backend**:
 
    ```bash
-   cd "S:/IPL - Copy/backend"
+   cd "S:/IPL/backend"
    npm run dev
    ```
 
 4. **Run ML service**:
 
    ```bash
-   cd "S:/IPL - Copy/ml-service"
+   cd "S:/IPL/ml-service"
    .venv\Scripts\activate
    uvicorn app.main:app --host 0.0.0.0 --port 8000
    ```
@@ -197,7 +197,7 @@ Typical workflow:
 5. **Run frontend**:
 
    ```bash
-   cd "S:/IPL - Copy/client"
+   cd "S:/IPL/client"
    npm start
    ```
 
