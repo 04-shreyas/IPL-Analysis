@@ -1,287 +1,266 @@
-IPL Analytics Platform
+# IPL Analytics Platform  
 Full-Stack MERN + FastAPI ML + Advanced Cricket Analytics (2008–2019)
 
-A complete, end-to-end IPL analytics system built using MongoDB, Express, React, Node.js, and FastAPI with machine learning support.
-This platform provides team analytics, player insights, ball-by-ball match breakdowns, over-by-over visualizations, and ML-driven predictions for IPL seasons 2008–2019.
+A complete IPL analytics platform combining React, Express, MongoDB, and FastAPI Machine Learning.  
+It provides deep statistical insights, match breakdowns, ball-by-ball exploration, and ML-powered predictions for all IPL seasons from 2008–2019.
 
-🚀 Key Highlights
+--------------------------------------------------------------------------------
+EXTENSIBLE MODULAR STRUCTURE FOR NEW ANALYTICS MODULES
+--------------------------------------------------------------------------------
 
-Full-stack architecture with 3 coordinated services
-
-Real IPL datasets from 2008–2019
-
-Machine learning models for match winner and score prediction
-
-Deep cricket analytics:
-
-Phase analysis (PP / Middle / Death)
-
-Rival battles (batsman vs bowler)
-
-Impact Index scoring engine
-
-Venue metrics
-
-Complete match timelines + over-by-over stats
-
-Team → Season → Match → Ball-by-Ball drilldown
-
-Extensible modular structure for new analytics modules
-
-📂 Project Structure
+PROJECT STRUCTURE
 IPL/
-  backend/        # Node/Express REST API + MongoDB models
-  client/         # React frontend (Vite)
-  ml-service/     # FastAPI ML microservice
-  data/           # CSV/XLSX IPL data (2008–2019)
-  docs/           # Documentation + API references
+  backend/        Node/Express REST API + MongoDB models
+  client/         React frontend (Vite)
+  ml-service/     FastAPI ML microservice
+  data/           CSV/XLSX IPL data (2008–2019)
+  docs/           Documentation + API references
   README.md
   .gitignore
 
-🧠 Architecture Overview
-+-------------------+         +------------------------+
-|     React UI      | <---->  |      Node Backend      |
-|  (client, Vite)   |  API    | Express + MongoDB       |
-+-------------------+         +------------------------+
-           |                               |
-           | ML calls                      | Data access
-           v                               v
-+------------------------------------------------------+
-|            FastAPI ML Service (Python)               |
-|   - Match Winner Model (Classification)              |
-|   - Score Prediction Model (Regression)              |
-+------------------------------------------------------+
 
+--------------------------------------------------------------------------------
+ARCHITECTURE OVERVIEW
+--------------------------------------------------------------------------------
+
+                 IPL Analytics Platform Architecture
+
+                  +------------------------+
+                  |        React UI        |
+                  |    (Frontend, Vite)    |
+                  +-----------+------------+
+                              |
+                              | API Calls
+                              v
+      +---------------------------------------------------+
+      |                 Node.js Backend                   |
+      |         Express API + MongoDB (Mongoose)          |
+      +-----------+------------------------+---------------+
+                  |                        |
+                  | Database Access        | ML Requests
+                  v                        v
+      +---------------------------------------------------+
+      |               FastAPI ML Microservice             |
+      |       - Match Winner Model (Classification)       |
+      |       - Score Prediction Model (Regression)       |
+      +---------------------------------------------------+
+
+React ↔ Backend for analytics and match data  
+Backend ↔ ML Service for predictions  
+Backend ↔ MongoDB for structured IPL stats  
+React ↔ ML Service (optional) for live simulation tools  
+
+
+--------------------------------------------------------------------------------
+TECH STACK
+--------------------------------------------------------------------------------
 
-React ↔ Backend for analytics and match data
-Backend ↔ ML Service for predictions
-Backend ↔ MongoDB for structured IPL stats
-React ↔ ML Service (optional) for live simulation tools
+Frontend:
+  - React (Vite)
+  - Axios
+  - Recharts (visualizations)
+
+Backend:
+  - Node.js + Express
+  - MongoDB + Mongoose
+  - CSV ingestion + ETL scripts
 
-🛠 Tech Stack
-Frontend
+Machine Learning:
+  - FastAPI + Uvicorn
+  - scikit-learn
+  - pandas / numpy
+  - Joblib (model persistence)
 
-React (Vite)
 
-Recharts (visualizations)
+--------------------------------------------------------------------------------
+MAIN FEATURES
+--------------------------------------------------------------------------------
 
-Axios
+HOME DASHBOARD
+  - Tournament summary  
+  - Matches per season  
+  - Wins per team  
 
-Backend
+TEAMS ANALYTICS
+  - Team profile  
+  - Season-by-season breakdown  
+  - Team → Season → Match → Over → Ball drilldown  
 
-Node.js + Express
+PLAYER ANALYTICS
+  - Batting & bowling overview  
+  - Season performance  
+  - Strike rate trends  
+  - Bowler difficulty metrics  
 
-MongoDB + Mongoose
+BOWLER ANALYTICS
+  - Economy  
+  - Wickets per phase  
+  - Venue performance  
 
-CSV ingestion scripts
+VENUE ANALYTICS
+  - Average 1st innings score  
+  - Toss impact  
+  - Best teams and players  
 
-Aggregation pipelines for advanced analytics
+HEAD-TO-HEAD
+  - Rivalry overview  
+  - Season filter  
+  - Win/loss breakdown  
 
-ML Service
+MATCH DETAILS
+  - Full match scorecard  
+  - Fall of wickets  
+  - Partnerships  
+  - Manhattan & Worm graphs  
+  - Over-by-over analytics  
 
-Python 3.9+
+ADVANCED ANALYTICS
+  - Phase Analysis (PP/Middle/Death)
+  - Impact Index Scoring Engine
+  - Rival Battle (Batsman vs Bowler)
+  - Over aggregation APIs  
 
-FastAPI + Uvicorn
+MACHINE LEARNING MODELS
+  - Match Winner Prediction  
+  - Score Prediction (First Innings)  
 
-scikit-learn
 
-pandas / numpy
+--------------------------------------------------------------------------------
+INSTALLATION & SETUP
+--------------------------------------------------------------------------------
 
-Joblib for model persistence
+You must run **all three services**: backend, ML service, frontend.
 
-📊 Main Features
-✔ Home Dashboard
+1) BACKEND SETUP (Node.js + Express)
 
-Total matches
+  cd IPL/backend
+  npm install
 
-Matches per season
+Create .env (optional):
 
-Wins per team
+  PORT=5000
+  MONGO_URI=mongodb://localhost:27017/ipl
 
-✔ Teams Module
+Import data (FIRST TIME ONLY):
 
-Team details
+  $env:IMPORT_CLEAR="true"
+  npm run import:data
 
-Season-wise stats
+Run backend:
 
-Team → Season → Matches → Ball-by-ball drilldown
+  npm run dev
 
-✔ Player Analytics
+Backend URL:
+  http://localhost:5000/api
 
-Career stats
 
-Season performance
+2) ML SERVICE SETUP (FastAPI)
 
-Strike rate trends
+  cd IPL/ml-service
+  python -m venv .venv
+  .venv\Scripts\activate
+  pip install -r requirements.txt
 
-Bowler difficulty
+Run ML API:
 
-✔ Bowler Analytics
+  uvicorn app.main:app --host 0.0.0.0 --port 8000
 
-Economy
+ML URL:
+  http://localhost:8000/ml/...
 
-Wickets by phase
 
-Venue performance
+3) FRONTEND SETUP (React + Vite)
 
-✔ Venue Analytics
+  cd IPL/client
+  npm install
+  npm start
 
-First-innings averages
+Frontend URL:
+  http://localhost:3000
 
-Toss impact
 
-Best teams & players per venue
+--------------------------------------------------------------------------------
+RUNNING EVERYTHING TOGETHER
+--------------------------------------------------------------------------------
 
-✔ Head-to-Head
+1. Start MongoDB  
+2. Start Backend  
+3. Start ML Service  
+4. Start Frontend  
 
-Win rates
+Open browser → http://localhost:3000
 
-Historic dominance
 
-Match summaries
+--------------------------------------------------------------------------------
+DATASET DETAILS
+--------------------------------------------------------------------------------
 
-✔ Match Details
+Includes IPL seasons 2008–2019:
 
-Full scorecard
+  matches.csv
+  deliveries.csv
+  players.xlsx
+  teams.csv
+  most_runs_average_strikerate.csv
+  teamwise_home_away.csv
 
-Fall of wickets
+Used for:
+  - Team analytics
+  - Player analytics
+  - Venue scoring patterns
+  - Match timelines
+  - Phase analysis
+  - Rival battles
+  - Machine learning model features
 
-Over-by-over stats
 
-Manhattan & Worm charts
+--------------------------------------------------------------------------------
+API SUMMARY
+--------------------------------------------------------------------------------
 
-✔ Advanced Analytics
+BACKEND /api ROUTES
 
-Phase analysis (PP/Middle/Death)
+  /teams                               → All teams
+  /teams/:name                         → Team details
+  /teams/:name/seasons                 → Season-level stats
+  /teams/:name/seasons/:season/matches → Matches for team in season
+  /matches/:matchId                    → Full match details
+  /matches/:matchId/overs              → Over-by-over breakdown
+  /analytics/phase                     → Phase analytics
+  /analytics/impact                    → Impact Index
+  /analytics/rival                     → Batsman vs bowler rivalry
+  /analytics/venues/:venue/metrics     → Venue analytics
 
-Impact Index (scoring engine)
 
-Rival Battle (batsman vs bowler)
+ML SERVICE /ml ROUTES
 
-Over aggregation endpoint for charts
+  /ml/predict/match-winner   → Match winner prediction
+  /ml/predict/score          → First innings score prediction
+  /ml/predict/live           → Optional real-time simulator
 
-✔ ML Predictions
 
-Pre-match winner probabilities
+--------------------------------------------------------------------------------
+NOTES
+--------------------------------------------------------------------------------
 
-First-innings final score prediction
+- Designed specifically for IPL 2008–2019.  
+- Update API URLs in frontend for production deployment.  
+- For deployment:
+    - Use hosted MongoDB  
+    - Serve React build with Node/Nginx  
+    - Deploy backend + ML separately  
 
-Live prediction endpoint (optional)
 
-📦 Installing the Project
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
 
-All paths assume your directory is:
-IPL/
+This system demonstrates:
 
-1️⃣ Backend Setup (Node + Express)
-cd IPL/backend
-npm install
+  - Full-stack engineering (React + Node + MongoDB)
+  - Production-level API design
+  - Real-world data processing (ETL on IPL datasets)
+  - Machine learning integration via FastAPI
+  - Advanced sports analytics and visualization
+  - Highly modular architecture suitable for extension
 
-
-Create .env if needed:
-
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/ipl
-
-Import Data (first time only)
-$env:IMPORT_CLEAR="true"  # PowerShell
-npm run import:data
-
-Start Backend
-npm run dev
-
-
-Backend runs at:
-http://localhost:5000/api
-
-2️⃣ ML Service Setup (FastAPI)
-cd IPL/ml-service
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-
-Start ML API
-uvicorn app.main:app --host 0.0.0.0 --port 8000
-
-
-ML runs at:
-http://localhost:8000/ml/...
-
-3️⃣ Frontend Setup (React)
-cd IPL/client
-npm install
-npm start
-
-
-Frontend runs at:
-http://localhost:3000
-
-🧪 Running Everything Together
-
-Start MongoDB
-
-Start backend
-
-Start ML service
-
-Start frontend
-
-Now open:
-
-➡️ http://localhost:3000
-
-📁 Data Assumptions
-
-Dataset covers IPL seasons 2008–2019 including:
-
-matches.csv
-
-deliveries.csv
-
-teams.csv
-
-players.xlsx
-
-teamwise_home_away.csv
-
-most_runs_average_strikerate.csv
-
-If you provide newer seasons, update import scripts accordingly.
-
-🧩 API Summary (Short)
-Backend /api
-Endpoint	Description
-/teams	All teams
-/teams/:name	Team profile
-/matches	Matches list
-/matches/:matchId	Full match details
-/matches/:matchId/overs	Over-aggregated stats
-/analytics/phase	Phase analysis
-/analytics/impact	Impact Index
-/analytics/venues/:venue/metrics	Venue analytics
-/analytics/rival	Batsman vs bowler battle
-ML /ml
-Endpoint	Description
-/ml/predict/match-winner	Pre-match prediction
-/ml/predict/score	First-innings score prediction
-/ml/predict/live	In-match simulation (optional)
-
-Complete details in:
-docs/feature_overview.txt
-backend/docs/analytics_endpoints.md
-
-📜 Notes
-
-Works only with IPL 2008–2019 data
-
-For deployments:
-
-Host MongoDB externally
-
-Deploy backend (Node)
-
-Deploy ML (FastAPI)
-
-Build and serve React frontend
-
-Update API base URL in client/src/api/apiClient.js if deploying
