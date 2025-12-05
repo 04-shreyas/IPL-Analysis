@@ -1,0 +1,115 @@
+.VenueAnalytics-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.VenueAnalytics-page h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.75rem;
+}
+
+.VenueAnalytics-page h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.VenueAnalytics-page h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.analytics-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.chart-container {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.venue-analytics-suggestions {
+  margin-top: 0.5rem;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #ffffff;
+  list-style: none;
+  padding: 0;
+}
+
+.venue-analytics-suggestions li {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.venue-analytics-suggestions li:hover {
+  background: #e5f0ff;
+}
+
+.season-filter {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.season-filter label {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.season-filter select {
+  padding: 0.45rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+}
+
+.top-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.top-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.top-item .rank {
+  font-weight: bold;
+  color: #007bff;
+  min-width: 40px;
+}
+
+.top-item .name {
+  flex: 1;
+  font-weight: 600;
+}
+
+.top-item .value {
+  color: #666;
+  font-weight: 500;
+}

@@ -1,0 +1,261 @@
+.team-season-matches-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.breadcrumb a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  margin: 0 5px;
+  color: #999;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.matches-count {
+  color: #666;
+  font-size: 16px;
+  margin: 0;
+}
+
+.matches-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.matches-table {
+  width: 100%;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 120px 150px 1fr 120px 200px 100px;
+  gap: 15px;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  font-weight: 600;
+  color: #495057;
+  font-size: 14px;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: 120px 150px 1fr 120px 200px 100px;
+  gap: 15px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-items: center;
+}
+
+.match-row:hover {
+  background-color: #f8f9fa;
+}
+
+.match-row:last-child {
+  border-bottom: none;
+}
+
+.col-date {
+  font-size: 14px;
+  color: #666;
+}
+
+.col-opponent {
+  font-weight: 500;
+}
+
+.opponent-name {
+  color: #333;
+}
+
+.col-venue {
+  font-size: 14px;
+  color: #666;
+}
+
+.venue-name {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.col-toss {
+  font-size: 13px;
+}
+
+.toss-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toss-winner {
+  font-weight: 500;
+  color: #333;
+}
+
+.toss-decision {
+  color: #666;
+  font-size: 12px;
+}
+
+.col-score {
+  font-size: 14px;
+}
+
+.score-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.team-score {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.team-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 12px;
+}
+
+.score {
+  font-family: 'Courier New', monospace;
+  color: #495057;
+}
+
+.col-result {
+  text-align: center;
+}
+
+.result {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.result.won {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.result.lost {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.result.no-result {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.no-matches {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.no-matches p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-season-matches-page {
+    padding: 15px;
+  }
+  
+  .table-header,
+  .match-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .table-header {
+    display: none; /* Hide header on mobile */
+  }
+  
+  .match-row {
+    display: block;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: white;
+  }
+  
+  .match-row > div {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .match-row > div:before {
+    content: attr(class);
+    font-weight: 600;
+    color: #666;
+    font-size: 12px;
+    text-transform: capitalize;
+    min-width: 80px;
+  }
+  
+  .col-date:before { content: "Date: "; }
+  .col-opponent:before { content: "Opponent: "; }
+  .col-venue:before { content: "Venue: "; }
+  .col-toss:before { content: "Toss: "; }
+  .col-score:before { content: "Score: "; }
+  .col-result:before { content: "Result: "; }
+  
+  .venue-name {
+    max-width: none;
+  }
+}

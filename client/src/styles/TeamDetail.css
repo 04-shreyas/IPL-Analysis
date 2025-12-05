@@ -1,0 +1,139 @@
+.team-detail-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.team-detail-page .breadcrumb {
+  margin-bottom: 1rem;
+}
+
+.team-detail-page .breadcrumb a {
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+.team-detail-page .team-info {
+  display: grid;
+  gap: 2rem;
+}
+
+.team-detail-page .basic-info,
+.team-detail-page .performance-stats {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.team-detail-page .info-item {
+  margin-bottom: 0.75rem;
+}
+
+.team-detail-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.team-detail-page .stat-card {
+  text-align: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+.team-detail-page .stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+.team-detail-page .seasons-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.team-detail-page .seasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.team-detail-page .season-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.team-detail-page .season-card:hover {
+  background: #f1f5f9;
+  border-color: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.team-detail-page .season-header h3 {
+  color: #1e3a8a;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.team-detail-page .season-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.team-detail-page .stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+.team-detail-page .stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.team-detail-page .stat-value {
+  font-size: 0.875rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.team-detail-page .season-footer {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.team-detail-page .click-hint {
+  font-size: 0.75rem;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-detail-page .seasons-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-detail-page .season-stats {
+    grid-template-columns: 1fr;
+  }
+}

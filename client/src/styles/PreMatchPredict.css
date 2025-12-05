@@ -1,0 +1,54 @@
+.pre-match-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.pre-match-page .prediction-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.pre-match-page .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.pre-match-page .prediction-result {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+
+.pre-match-page .prediction-summary {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pre-match-page .predicted-winner,
+.pre-match-page .confidence {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.pre-match-page .probability-breakdown {
+  margin-top: 1.5rem;
+}
+
+.pre-match-page .prob-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pre-match-page .probability {
+  font-weight: bold;
+  color: #1e3a8a;
+}

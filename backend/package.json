@@ -1,0 +1,26 @@
+{
+  "name": "ipl-analytics-backend",
+  "version": "1.0.0",
+  "description": "Backend API for IPL analytics platform",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "import:data": "node src/scripts/importData.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "mongoose": "^8.0.3",
+    "dotenv": "^16.3.1",
+    "csv-parser": "^3.0.0",
+    "xlsx": "^0.18.5",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["ipl", "analytics", "api"],
+  "author": "",
+  "license": "ISC"
+}

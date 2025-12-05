@@ -1,0 +1,187 @@
+IPL Analytics - Feature Overview (Page by Page)
+=================================================
+
+Home (/)
+---------
+- Shows project title and short description.
+- Displays tournament summary:
+  - Total matches.
+  - Matches per season.
+  - Top team wins.
+
+Teams (/teams)
+--------------
+- Lists all IPL teams.
+- Links to individual team detail pages.
+
+Team Detail (/teams/:name)
+--------------------------
+- Shows team information (basic stats, summary).
+- Links to team seasons view.
+
+Team Season Matches (/teams/:name/seasons/:season)
+--------------------------------------------------
+- Shows all matches for a team in a specific season.
+- Links to match details and match timeline.
+
+Head-to-Head (/head-to-head)
+----------------------------
+- Compare two teams head-to-head.
+- Optional season filter (2008–2019) to restrict matches.
+- Shows:
+  - Total matches between teams.
+  - Wins for each team with percentages.
+  - Ties / no result count.
+
+Pre-Match Prediction (/predict/pre-match)
+----------------------------------------
+- Predicts match winner using the ML service.
+- Inputs: teams, venue, toss info, etc.
+
+Score Prediction (/predict/score)
+---------------------------------
+- Predicts target/score for a given match situation using the ML service.
+
+Player Analytics (/players)
+---------------------------
+- Search players with autocomplete suggestions.
+- Optional season filter (2008–2019); filters stats by season.
+- Shows batting summary:
+  - Total runs, balls, strike rate, fours, sixes, best venue.
+- Shows bowling & fielding summary if available:
+  - Bowling: wickets, overs, economy, best figures.
+  - Fielding: catches, run outs, total dismissals.
+- Charts:
+  - Performance by season (runs, strike rate).
+  - Performance by venue (top venues by runs).
+
+Bowler Analytics (/bowlers)
+---------------------------
+- Search bowlers with autocomplete suggestions.
+- Optional season filter (2008–2019); filters stats by season.
+- Shows bowling summary:
+  - Total wickets, overs, runs conceded, economy, best figures.
+  - Dot ball %, death overs economy.
+- Charts:
+  - Wickets vs teams.
+  - Economy rate by overs phase (1–6, 7–15, 16–20).
+  - Economy rate by venue (top venues).
+
+Venue Analytics (/venues)
+-------------------------
+- Single merged venue page (Venue Analytics + Venue Metrics).
+- Search venues with autocomplete suggestions.
+- Optional season filter (2008–2019); metrics can be season-specific.
+- All-time venue stats:
+  - Total matches, average first-innings score.
+  - Bat first vs chase win %, toss win = match win %.
+  - Highest score at venue.
+  - Toss decision impact (chart).
+  - Best performing teams at venue.
+- Season-specific metrics (from merged Venue Metrics):
+  - Average 1st vs 2nd innings scores (cards + bar chart).
+  - Bat-first vs chase win % (bar chart).
+  - Ranked lists for selected season:
+    - Top teams at venue (wins).
+    - Top run scorers at venue.
+    - Top bowlers at venue (wickets & economy).
+
+Umpire Stats (/umpires)
+-----------------------
+- Single search box with autocomplete for umpires.
+- Shows umpire career statistics:
+  - Total matches, finals officiated, seasons active, most frequent venue.
+  - Teams encountered, career span.
+- Charts:
+  - Most frequent venues.
+  - Teams most seen.
+  - Activity by season.
+
+Partnership Analyzer (/partnerships)
+------------------------------------
+- Analyze batting partnerships for a given team.
+- Shows:
+  - Top partnerships (runs, balls, average, strike rate).
+  - Opening, middle-order, and finishing partnership segments.
+
+Season Summary (/season-summary)
+--------------------------------
+- Select a season (2008–2019) and view:
+  - Top run scorers.
+  - Top wicket takers.
+  - Team win percentages.
+  - Venue distribution for that season.
+  - Season run/wicket totals, highest team total, best chase.
+  - Champion team for the season.
+
+Milestones (/milestones)
+------------------------
+- Lists key IPL milestones and records (top-level achievements).
+
+Match Details (/matches/:id)
+----------------------------
+- Detailed view for a single match:
+  - Teams, venue, date, toss details, winner, result margin.
+  - Innings summaries (runs, wickets, overs).
+  - Top batting performances per innings.
+  - Top bowling figures per innings.
+  - Player of the match and other key performances.
+
+Match Timeline (/matches/:id/timeline)
+-------------------------------------
+- Timeline view for a match:
+  - Over-by-over runs and wickets for each innings.
+  - Cumulative runs and run rates.
+  - Required run rate for second innings.
+- Advanced charts via MatchOverCharts component:
+  - Manhattan chart (runs per over).
+  - Worm chart (cumulative runs).
+  - Wickets per over.
+
+Phase Analysis (/analysis/phase)
+--------------------------------
+- Advanced analytics for phases (Powerplay 1–6, Middle 7–15, Death 16–20).
+- Filters:
+  - Team (optional).
+  - Player (optional with team-aware search).
+  - Season (2008–2019, optional).
+- Returns:
+  - Batting performance by phase (runs, balls, SR, fours, sixes, wickets).
+  - Bowling performance by phase (runs conceded, balls, economy, wickets).
+  - League-wide phase statistics (totals, run rate, wickets, boundaries).
+- Tables and bar charts for batting and bowling.
+
+Impact Index (/analytics/impact)
+--------------------------------
+- Computes deterministic "impact" scores for players.
+- Filters:
+  - Player (optional, with autocomplete).
+  - Team (optional).
+  - Season (optional, 2008–2019).
+  - Limit (number of players, default 50).
+- Behaviors:
+  - No player filter: league or team leaderboard of top impact players.
+  - Player selected: detailed impact breakdown for that player.
+- Player detail panel:
+  - Total impact score.
+  - Batting impact components (base, SR bonus, boundaries bonus, clutch bonus).
+  - Bowling impact components (base wickets, economy bonus, death-over bonus).
+
+Rival Battle (/analytics/rival)
+-------------------------------
+- Batsman vs bowler head-to-head module.
+- Inputs:
+  - Batsman search box with autocomplete.
+  - Bowler search box with autocomplete.
+  - Season (optional, 2008–2019; filters matches by season).
+- Outputs:
+  - Balls faced, runs scored, dismissals, strike rate, fours, sixes.
+  - Dismissal type breakdown (chart).
+
+Global Behaviors & Utilities
+----------------------------
+- Player / bowler / venue / umpire search boxes share a consistent autocomplete UX:
+  - Type to show suggestions.
+  - Click to select; field keeps the chosen name; dropdown hides.
+- Season selectors across analytics pages are limited to 2008–2019.
+- Advanced endpoints (phase analysis, venue metrics, impact index, rival battle, match over stats) are documented in `backend/docs/analytics_endpoints.md`.

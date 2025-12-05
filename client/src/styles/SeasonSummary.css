@@ -1,0 +1,44 @@
+.SeasonSummary-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.SeasonSummary-page h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.75rem;
+}
+
+.SeasonSummary-page h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.SeasonSummary-page h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.analytics-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.chart-container {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}

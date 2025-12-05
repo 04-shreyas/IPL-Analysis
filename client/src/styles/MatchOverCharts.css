@@ -1,0 +1,115 @@
+.match-over-charts {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.chart-section {
+  margin-bottom: 2rem;
+}
+
+.chart-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.wicket-markers-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.wicket-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.wicket-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #dc3545;
+  border-radius: 50%;
+}
+
+.wicket-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.wicket-tag {
+  padding: 0.25rem 0.75rem;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.over-summary {
+  margin-top: 2rem;
+}
+
+.over-summary h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.summary-table-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.inning-summary h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.summary-table th,
+.summary-table td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.summary-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+  position: sticky;
+  top: 0;
+}
+
+.summary-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.summary-table tbody tr.wicket-over {
+  background-color: #fff3cd;
+}
+
+.summary-table tbody tr.wicket-over:hover {
+  background-color: #ffe69c;
+}
+
+@media (max-width: 768px) {
+  .summary-table-container {
+    grid-template-columns: 1fr;
+  }
+}

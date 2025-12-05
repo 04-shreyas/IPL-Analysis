@@ -1,0 +1,53 @@
+.teams-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.teams-page .teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.teams-page .team-card {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.teams-page .team-card:hover {
+  background: #f1f5f9;
+  border-color: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.teams-page .team-card h3 {
+  color: #1e3a8a;
+  margin: 0 0 0.25rem 0;
+}
+
+.teams-page .team-short-name {
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.teams-page .team-city {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.teams-page .team-stats .stat {
+  margin-bottom: 0.5rem;
+}
