@@ -1,215 +1,287 @@
-# IPL Analytics
+IPL Analytics Platform
+Full-Stack MERN + FastAPI ML + Advanced Cricket Analytics (2008–2019)
 
-A full-stack IPL (Indian Premier League) analytics project with:
+A complete, end-to-end IPL analytics system built using MongoDB, Express, React, Node.js, and FastAPI with machine learning support.
+This platform provides team analytics, player insights, ball-by-ball match breakdowns, over-by-over visualizations, and ML-driven predictions for IPL seasons 2008–2019.
 
-- **Backend** (Node.js + Express + MongoDB) providing cricket analytics APIs.
-- **Client** (React) for interactive dashboards and visualizations.
-- **ML Service** (FastAPI + Python) for prediction endpoints.
+🚀 Key Highlights
 
-This README explains how to set up the project locally and run all services.
+Full-stack architecture with 3 coordinated services
 
----
+Real IPL datasets from 2008–2019
 
-## 1. Prerequisites
+Machine learning models for match winner and score prediction
 
-- **Node.js** (v18+ recommended)
-- **npm** (comes with Node.js)
-- **Python 3.9+**
-- **pip** (Python package manager)
-- **MongoDB** running locally on `mongodb://localhost:27017`
+Deep cricket analytics:
 
-Make sure MongoDB is running before you start the backend or import data.
+Phase analysis (PP / Middle / Death)
 
----
+Rival battles (batsman vs bowler)
 
-## 2. Project Structure
+Impact Index scoring engine
 
-```text
+Venue metrics
+
+Complete match timelines + over-by-over stats
+
+Team → Season → Match → Ball-by-Ball drilldown
+
+Extensible modular structure for new analytics modules
+
+📂 Project Structure
 IPL/
-  backend/        # Node/Express API + MongoDB models and controllers
-  client/         # React frontend
-  ml-service/     # FastAPI ML service for predictions
-  docs/           # Documentation (feature_overview, backend endpoint docs, etc.)
-```
+  backend/        # Node/Express REST API + MongoDB models
+  client/         # React frontend (Vite)
+  ml-service/     # FastAPI ML microservice
+  data/           # CSV/XLSX IPL data (2008–2019)
+  docs/           # Documentation + API references
+  README.md
+  .gitignore
 
-Key docs:
+🧠 Architecture Overview
++-------------------+         +------------------------+
+|     React UI      | <---->  |      Node Backend      |
+|  (client, Vite)   |  API    | Express + MongoDB       |
++-------------------+         +------------------------+
+           |                               |
+           | ML calls                      | Data access
+           v                               v
++------------------------------------------------------+
+|            FastAPI ML Service (Python)               |
+|   - Match Winner Model (Classification)              |
+|   - Score Prediction Model (Regression)              |
++------------------------------------------------------+
 
-- `docs/feature_overview.txt` – page-by-page overview of all features.
-- `backend/docs/analytics_endpoints.md` – examples of advanced analytics API calls.
 
----
+React ↔ Backend for analytics and match data
+Backend ↔ ML Service for predictions
+Backend ↔ MongoDB for structured IPL stats
+React ↔ ML Service (optional) for live simulation tools
 
-## 3. Backend Setup (Node/Express)
+🛠 Tech Stack
+Frontend
 
-1. Open a terminal in the `backend` folder:
+React (Vite)
 
-   ```bash
-   cd "S:/IPL/backend"
-   ```
+Recharts (visualizations)
 
-2. Install dependencies:
+Axios
 
-   ```bash
-   npm install
-   ```
+Backend
 
-3. (Optional) Configure environment variables:
+Node.js + Express
 
-   Create a `.env` file in `backend/` if you want to override defaults:
+MongoDB + Mongoose
 
-   ```env
-   PORT=5000
-   MONGO_URI=mongodb://localhost:27017/ipl
-   ```
+CSV ingestion scripts
 
-4. Import IPL data into MongoDB (matches, deliveries, teams, players):
+Aggregation pipelines for advanced analytics
 
-   ```bash
-   # Windows PowerShell example
-   $env:IMPORT_CLEAR="true"
-   npm run import:data
-   ```
+ML Service
 
-   This clears existing data (if any) and re-imports from the CSV files bundled with the project.
+Python 3.9+
 
-5. Start the backend API server:
+FastAPI + Uvicorn
 
-   ```bash
-   npm run dev
-   ```
+scikit-learn
 
-   The server should start on `http://localhost:5000`.
+pandas / numpy
 
----
+Joblib for model persistence
 
-## 4. ML Service Setup (FastAPI)
+📊 Main Features
+✔ Home Dashboard
 
-1. Open a terminal in the `ml-service` folder:
+Total matches
 
-   ```bash
-   cd "S:/IPL/ml-service"
-   ```
+Matches per season
 
-2. Create and activate a virtual environment (recommended):
+Wins per team
 
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\activate  # PowerShell / CMD on Windows
-   ```
+✔ Teams Module
 
-3. Install Python dependencies:
+Team details
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+Season-wise stats
 
-4. Start the FastAPI server with Uvicorn:
+Team → Season → Matches → Ball-by-ball drilldown
 
-   ```bash
-   uvicorn app.main:app --host 0.0.0.0 --port 8000
-   ```
+✔ Player Analytics
 
-   The ML service will be available at `http://localhost:8000`.
+Career stats
 
-   The backend expects prediction endpoints at:
+Season performance
 
-   - `http://localhost:8000/ml/predict/live` (and any others defined in `app.main`).
+Strike rate trends
 
----
+Bowler difficulty
 
-## 5. Client Setup (React)
+✔ Bowler Analytics
 
-1. Open a terminal in the `client` folder:
+Economy
 
-   ```bash
-   cd "S:/IPL/client"
-   ```
+Wickets by phase
 
-2. Install dependencies:
+Venue performance
 
-   ```bash
-   npm install
-   ```
+✔ Venue Analytics
 
-3. Start the React development server:
+First-innings averages
 
-   ```bash
-   npm start
-   ```
+Toss impact
 
-4. Open the app in your browser:
+Best teams & players per venue
 
-   ```
-   http://localhost:3000
-   ```
+✔ Head-to-Head
 
-   The client is configured (via `client/src/api/apiClient.js`) to talk to:
+Win rates
 
-   - Backend API at `http://localhost:5000/api`
-   - ML service at `http://localhost:8000`
+Historic dominance
 
-Ensure both the backend and ML service are running for all features to work (predictions, advanced analytics, etc.).
+Match summaries
 
----
+✔ Match Details
 
-## 6. Main Features
+Full scorecard
 
-High-level overview (see `docs/feature_overview.txt` for full details):
+Fall of wickets
 
-- **Home dashboard** with tournament summary stats.
-- **Head-to-Head** comparisons between teams with optional season filter.
-- **Player Analytics** and **Bowler Analytics** with season filters and detailed charts.
-- **Venue Analytics** (merged metrics + analytics) with top teams, batsmen, and bowlers.
-- **Umpire Statistics** with career overview and charts.
-- **Match Details** and **Match Timeline** with advanced over-by-over charts.
-- **Phase Analysis**, **Impact Index**, and **Rival Battle** advanced analytics modules.
+Over-by-over stats
 
----
+Manhattan & Worm charts
 
-## 7. Running Everything Together
+✔ Advanced Analytics
 
-Typical workflow:
+Phase analysis (PP/Middle/Death)
 
-1. **Start MongoDB** locally.
-2. **Import data** (only needed once or when refreshing data):
+Impact Index (scoring engine)
 
-   ```bash
-   cd "S:/IPL/backend"
-   $env:IMPORT_CLEAR="true"  # PowerShell
-   npm run import:data
-   ```
+Rival Battle (batsman vs bowler)
 
-3. **Run backend**:
+Over aggregation endpoint for charts
 
-   ```bash
-   cd "S:/IPL/backend"
-   npm run dev
-   ```
+✔ ML Predictions
 
-4. **Run ML service**:
+Pre-match winner probabilities
 
-   ```bash
-   cd "S:/IPL/ml-service"
-   .venv\Scripts\activate
-   uvicorn app.main:app --host 0.0.0.0 --port 8000
-   ```
+First-innings final score prediction
 
-5. **Run frontend**:
+Live prediction endpoint (optional)
 
-   ```bash
-   cd "S:/IPL/client"
-   npm start
-   ```
+📦 Installing the Project
 
-Once all three are running, open `http://localhost:3000` in your browser and explore the dashboards.
+All paths assume your directory is:
+IPL/
 
----
+1️⃣ Backend Setup (Node + Express)
+cd IPL/backend
+npm install
 
-## 8. Notes
 
-- This project assumes the classic IPL seasons **2008–2019** for all season-based filters.
-- If you change ports or hostnames, update the API base URLs in `client/src/api/apiClient.js` accordingly.
-- For production deployment, you would typically:
-  - Host MongoDB on a managed database service.
-  - Run the backend and ML service behind a reverse proxy.
-  - Build the React app (`npm run build`) and serve the static files from a web server.
+Create .env if needed:
+
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/ipl
+
+Import Data (first time only)
+$env:IMPORT_CLEAR="true"  # PowerShell
+npm run import:data
+
+Start Backend
+npm run dev
+
+
+Backend runs at:
+http://localhost:5000/api
+
+2️⃣ ML Service Setup (FastAPI)
+cd IPL/ml-service
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+
+Start ML API
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+
+ML runs at:
+http://localhost:8000/ml/...
+
+3️⃣ Frontend Setup (React)
+cd IPL/client
+npm install
+npm start
+
+
+Frontend runs at:
+http://localhost:3000
+
+🧪 Running Everything Together
+
+Start MongoDB
+
+Start backend
+
+Start ML service
+
+Start frontend
+
+Now open:
+
+➡️ http://localhost:3000
+
+📁 Data Assumptions
+
+Dataset covers IPL seasons 2008–2019 including:
+
+matches.csv
+
+deliveries.csv
+
+teams.csv
+
+players.xlsx
+
+teamwise_home_away.csv
+
+most_runs_average_strikerate.csv
+
+If you provide newer seasons, update import scripts accordingly.
+
+🧩 API Summary (Short)
+Backend /api
+Endpoint	Description
+/teams	All teams
+/teams/:name	Team profile
+/matches	Matches list
+/matches/:matchId	Full match details
+/matches/:matchId/overs	Over-aggregated stats
+/analytics/phase	Phase analysis
+/analytics/impact	Impact Index
+/analytics/venues/:venue/metrics	Venue analytics
+/analytics/rival	Batsman vs bowler battle
+ML /ml
+Endpoint	Description
+/ml/predict/match-winner	Pre-match prediction
+/ml/predict/score	First-innings score prediction
+/ml/predict/live	In-match simulation (optional)
+
+Complete details in:
+docs/feature_overview.txt
+backend/docs/analytics_endpoints.md
+
+📜 Notes
+
+Works only with IPL 2008–2019 data
+
+For deployments:
+
+Host MongoDB externally
+
+Deploy backend (Node)
+
+Deploy ML (FastAPI)
+
+Build and serve React frontend
+
+Update API base URL in client/src/api/apiClient.js if deploying
